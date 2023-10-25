@@ -1,11 +1,68 @@
-from pygame import *
-import random
+import pygame
+from customButton import customButton as button 
+import threading  
 
-init()
+def LoginButtonCallback():
+    print("button1Callback")
 
-width = 500
-height = 500
-window = display.set_mode((width, height))
-display.set_caption("Snake")
+def QuitButtonCallback():
+    print("Exiting")
+    pygame.quit()
+    exit(0)
 
-screen = display.get_surface()
+def setup():
+    pygame.init()
+
+    win = pygame.display.set_mode((415,50))
+    pygame.display.set_caption("Password Manager")
+    return win
+
+def main(surface):
+    color_dark = (31,31,31)
+    color_white = (255,255,255)
+    #pygame.draw.rect(surface, color_dark, [590, 315, 80 , 30])
+    buttonFont = pygame.font.SysFont(None, 24)
+    buttonLogin = button(
+                    surface, 
+                    buttonColor = color_dark, 
+                    buttonTextColor = color_white, 
+                    buttonText = "Login", 
+                    buttonFont = buttonFont, 
+                    xCoord = 0,
+                    yCoord = 0,
+                    width = 200,
+                    height = 50,
+                    onClick = LoginButtonCallback
+                    )  
+    
+    buttonQuit = button(
+                    surface, 
+                    buttonColor = color_dark, 
+                    buttonTextColor = color_white, 
+                    buttonText = "Quit", 
+                    buttonFont = buttonFont, 
+                    xCoord = 225,
+                    yCoord = 0,
+                    width = 200,
+                    height = 50,
+                    onClick = QuitButtonCallback
+                    )  
+
+    run = True
+
+    while run:
+        pygame.time.delay(100)
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            
+            buttonLogin.is_clicked(event)
+            buttonQuit.is_clicked(event)
+
+
+if __name__ == "__main__":
+    win = setup()
+    main(win)
+    
+pygame.quit()
