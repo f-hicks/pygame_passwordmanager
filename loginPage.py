@@ -10,6 +10,8 @@ def SubmitButtonCallback():
         f.write(f"{usernameTextArea.text},{passwordTextArea.text}\n")
     exit(0)
 
+def ShowAllButtonCallback():
+    print("Showing all usernames and passwords...")
 
 
 def setup():
@@ -63,8 +65,20 @@ def main(surface):
                     height = 50,
                     onClick = SubmitButtonCallback
                 )  
+    buttonShowAll = button(
+                    surface, 
+                    buttonColor = color_dark, 
+                    buttonTextColor = color_white, 
+                    buttonText = "Show All", 
+                    buttonFont = buttonFont, 
+                    xCoord = 230,
+                    yCoord = 65+15,
+                    width = 200,
+                    height = 50,
+                    onClick = ShowAllButtonCallback
+                ) 
+    
     run = True
-
     while run:
         pygame.time.delay(100)
         pygame.display.flip()
@@ -73,6 +87,7 @@ def main(surface):
                 run = False
             
             buttonSubmit.is_clicked(event)
+            buttonShowAll.is_clicked(event)
             usernameTextArea.onEvent(event)
             passwordTextArea.onEvent(event)
 
