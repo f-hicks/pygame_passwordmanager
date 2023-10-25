@@ -1,9 +1,10 @@
 import pygame
 from customButton import customButton as button 
-import threading  
+import loginPage
 
 def LoginButtonCallback():
-    print("button1Callback")
+    surface = loginPage.setup()
+    loginPage.main(surface)
 
 def QuitButtonCallback():
     print("Exiting")
