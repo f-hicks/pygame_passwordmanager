@@ -5,6 +5,8 @@ import loginPage
 def LoginButtonCallback():
     surface = loginPage.setup()
     loginPage.main(surface)
+    surface = setup()
+    main(surface)
 
 def QuitButtonCallback():
     print("Exiting")
@@ -42,7 +44,7 @@ def main(surface):
                     buttonTextColor = color_white, 
                     buttonText = "Quit", 
                     buttonFont = buttonFont, 
-                    xCoord = 225,
+                    xCoord = 215,
                     yCoord = 0,
                     width = 200,
                     height = 50,
