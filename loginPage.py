@@ -1,6 +1,8 @@
 import pygame
 from customButton import customButton as button 
 from customTextInput import customTextInput as textbox
+import showAllPage
+import main
 
 def SubmitButtonCallback():
     print("Submitted")
@@ -8,10 +10,13 @@ def SubmitButtonCallback():
     print(f"Password = {passwordTextArea.text}")
     with open("logincred.csv", "a") as f:
         f.write(f"{usernameTextArea.text},{passwordTextArea.text}\n")
-    exit(0)
+    global run
+    run = False
 
 def ShowAllButtonCallback():
-    print("Showing all usernames and passwords...")
+    surface = showAllPage.setup()
+    showAllPage.main(surface)
+
 
 
 def setup():
@@ -78,6 +83,7 @@ def main(surface):
                     onClick = ShowAllButtonCallback
                 ) 
     
+    global run
     run = True
     while run:
         pygame.time.delay(100)
@@ -92,6 +98,7 @@ def main(surface):
             passwordTextArea.onEvent(event)
 
 if __name__ == "__main__":
+    global surface
     surface = setup()
     main(surface)
 
