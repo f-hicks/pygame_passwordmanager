@@ -6,6 +6,10 @@ def SubmitButtonCallback():
     print("Submitted")
     print(f"Username = {usernameTextArea.text}")
     print(f"Password = {passwordTextArea.text}")
+    with open("logincred.csv", "a") as f:
+        f.write(f"{usernameTextArea.text},{passwordTextArea.text}\n")
+    exit(0)
+
 
 
 def setup():
