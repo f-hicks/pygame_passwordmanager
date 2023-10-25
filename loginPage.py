@@ -57,7 +57,7 @@ def main(surface):
                     buttonTextColor = color_white, 
                     buttonText = "Login", 
                     buttonFont = buttonFont, 
-                    xCoord = ((415/2)-200/2)+15,
+                    xCoord = 15,
                     yCoord = 65+15,
                     width = 200,
                     height = 50,
