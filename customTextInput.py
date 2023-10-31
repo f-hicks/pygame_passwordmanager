@@ -75,7 +75,6 @@ class customTextInput:
                         textbox.selected = False
         elif self.selected:
             if event.type == pygame.KEYDOWN:
-                print(event.key)
                 if event.key == pygame.K_RETURN:
                     self.selected = False
                 elif event.key == pygame.K_BACKSPACE:
