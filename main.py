@@ -1,5 +1,6 @@
 import pygame
 from customButton import customButton as button 
+from customButton import customButton
 import loginPage
 
 def LoginButtonCallback():
@@ -25,7 +26,7 @@ def main(surface):
     color_white = (255,255,255)
     #pygame.draw.rect(surface, color_dark, [590, 315, 80 , 30])
     buttonFont = pygame.font.SysFont(None, 24)
-    buttonLogin = button(
+    buttonLogin: customButton = button(
                     surface, 
                     buttonColor = color_dark, 
                     buttonTextColor = color_white, 
@@ -38,7 +39,7 @@ def main(surface):
                     onClick = LoginButtonCallback
                     )  
     
-    buttonQuit = button(
+    buttonQuit: customButton = button(
                     surface, 
                     buttonColor = color_dark, 
                     buttonTextColor = color_white, 
