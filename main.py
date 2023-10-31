@@ -18,6 +18,7 @@ def setup():
 
     win = pygame.display.set_mode((415,50))
     pygame.display.set_caption("Password Manager")
+    pygame.display.set_icon(pygame.image.load("imageicon.png"))
     return win
 
 def main(surface):
